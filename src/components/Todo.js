@@ -39,13 +39,13 @@ export default function Todo({ todo }) {
       />
 
       <div>
-        <button className="button-complete task-button" onClick={completeTodo}>
+        <button onClick={completeTodo}>
           <i className="fa fa-check-circle"></i>
         </button>
-        <button className="button-edit task-button" onClick={editTodo}>
+        <button onClick={editTodo}>
           <i className="fa fa-edit"></i>
         </button>
-        <button className="button-delete task-button" onClick={deleteTodo}>
+        <button onClick={deleteTodo}>
           <i className="fa fa-trash"></i>
         </button>
       </div>
