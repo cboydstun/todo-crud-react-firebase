@@ -2,27 +2,28 @@ import React, {useState} from 'react'
 import firebase from '../util/firebase'
 
 export default function Form() {
-    const [taskName, setTaskName] = useState('')
+    const [title, setTitle] = useState("");
 
-    const createTodo = (e) => {
-        e.preventDefault()
-        const todoRef = firebase.database().ref('Todo')
+    const createTodo = (event) => {
+        event.preventDefault();
+        const todoRef = firebase.database().ref("Todo");
         const todo = {
-            taskName,
-            completed: false
-        }
+          title,
+          complete: false,
+        };
         todoRef.push(todo);
-    }
+        setTitle("");
+      };
 
     const handleChange = (e) => {
-        setTaskName(e.target.value)
+        setTitle(e.target.value)
     }
 
     return (
         <form onSubmit={createTodo}>
             <input
                 placeholder="What needs to be done?"
-                value={taskName}
+                value={title}
                 type="text"
                 onChange={handleChange}
                 required
