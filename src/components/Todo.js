@@ -4,10 +4,13 @@ import firebase from "../util/firebase";
 export default function Todo({ todo }) {
   const [newTitle, setNewTitle] = useState("");
 
+  //remove todo
   const deleteTodo = () => {
     const todoRef = firebase.database().ref("Todo").child(todo.id);
     todoRef.remove();
   };
+
+  //toggle complete
   const completeTodo = () => {
     const todoRef = firebase.database().ref("Todo").child(todo.id);
     todoRef.update({
@@ -15,12 +18,15 @@ export default function Todo({ todo }) {
     });
   };
 
+  //update todo title
   const editTodo = () => {
     const todoRef = firebase.database().ref("Todo").child(todo.id);
     todoRef.update({
       title: newTitle,
     });
   };
+
+  //handle changes
   const handleChange = (e) => {
     if (todo.complete === true) {
       setNewTitle(todo.title);
@@ -29,12 +35,12 @@ export default function Todo({ todo }) {
       setNewTitle(e.target.value);
     }
   };
+
   return (
-    <li className={todo.complete ? "complete" : "list-item"}>
+    <div>
       <input
         type="text"
         value={todo.title === "" ? newTitle : todo.title}
-        className="list"
         onChange={handleChange}
       />
 
@@ -49,6 +55,6 @@ export default function Todo({ todo }) {
           <i className="fa fa-trash"></i>
         </button>
       </div>
-    </li>
+    </div>
   );
 }
