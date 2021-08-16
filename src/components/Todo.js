@@ -41,7 +41,7 @@ export default function Todo({ todo }) {
   return (
     <Form>
       <Row>
-        <Col lg={8}>
+        <Col lg={6}>
           <Form.Group className="mb-3">
             <Form.Control
               type="text"
@@ -51,7 +51,7 @@ export default function Todo({ todo }) {
             />
           </Form.Group>
         </Col>
-        <Col lg={4}>
+        <Col lg={3}>
           <Button
             type="submit"
             onClick={editTodo}

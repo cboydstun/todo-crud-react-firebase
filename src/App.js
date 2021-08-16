@@ -11,10 +11,12 @@ import "./App.css";
 export default function App() {
   return (
     <div className="App">
-      <Container className="conatiner">
+      <Container >
         <Title />
+        <div className="todos">
         <Form />
         <TodoList />
+        </div>
       </Container>
     </div>
   );

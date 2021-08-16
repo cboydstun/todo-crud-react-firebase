@@ -19,6 +19,14 @@ h1{
     font-size: 3rem;
 }
 
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
 .crud-button{
     margin-left: 0.5rem;
     margin-right: 0.5rem;

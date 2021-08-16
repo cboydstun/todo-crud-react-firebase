@@ -28,9 +28,10 @@ export default function FormComponent() {
   };
 
   return (
+    <div className="justify-content-center">
     <Form onSubmit={createTodo} className="mb-3">
       <Row>
-        <Col lg={8}>
+        <Col lg={6}>
           <FormControl
             type="text"
             placeholder="What needs to be done?"
@@ -38,10 +39,11 @@ export default function FormComponent() {
             value={title}
           />
         </Col>
-        <Col lg={4}>
+        <Col lg={3}>
           <Button type="submit" variant="danger">Create Todo</Button>
         </Col>
       </Row>
     </Form>
+    </div>
   );
 }
