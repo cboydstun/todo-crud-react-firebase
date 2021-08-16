@@ -13,10 +13,8 @@ export default function App() {
     <div className="App">
       <Container >
         <Title />
-        <div className="todos">
         <Form />
         <TodoList />
-        </div>
       </Container>
     </div>
   );
