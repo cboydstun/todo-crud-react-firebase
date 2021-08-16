@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import firebase from "../util/firebase";
 
+import { Row, Col, Form, Button } from "react-bootstrap";
+
 export default function Todo({ todo }) {
   const [newTitle, setNewTitle] = useState("");
 
@@ -37,24 +39,43 @@ export default function Todo({ todo }) {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={todo.title === "" ? newTitle : todo.title}
-        onChange={handleChange}
-      />
+    <Form>
+      <Row>
+        <Col lg={8}>
+          <Form.Group className="mb-3">
+            <Form.Control
+              type="text"
+              placeholder="Enter task"
+              value={todo.title === "" ? newTitle : todo.title}
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </Col>
+        <Col lg={4}>
+          <Button
+            type="submit"
+            onClick={editTodo}
+            style={
+              todo.complete ? { visibility: "hidden" } : { color: "white" }
+            }
+            className="crud-button"
+          >
+            <i className="fa fa-edit"></i>
+          </Button>
 
-      <div>
-        <button onClick={completeTodo}>
-          <i className="fa fa-check-circle"></i>
-        </button>
-        <button onClick={editTodo}>
-          <i className="fa fa-edit"></i>
-        </button>
-        <button onClick={deleteTodo}>
-          <i className="fa fa-trash"></i>
-        </button>
-      </div>
-    </div>
+          <Button
+            onClick={completeTodo}
+            style={todo.complete ? { color: "black" } : { color: "red" }}
+            className="crud-button"
+          >
+            <i className="fa fa-check-circle"></i>
+          </Button>
+
+          <Button onClick={deleteTodo} className="crud-button">
+            <i className="fa fa-trash-o"></i>
+          </Button>
+        </Col>
+      </Row>
+    </Form>
   );
 }

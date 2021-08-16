@@ -1,15 +1,21 @@
-import React from 'react'
+import React from "react";
 
-import Title from './components/Title'
-import Form from './components/Form'
-import TodoList from './components/TodoList'
+import Title from "./components/Title";
+import Form from "./components/Form";
+import TodoList from "./components/TodoList";
+
+import { Container } from "react-bootstrap";
+
+import "./App.css";
 
 export default function App() {
-    return (
-        <div>
-            <Title />
-            <Form />
-            <TodoList />
-        </div>
-    )
+  return (
+    <div className="App">
+      <Container className="conatiner">
+        <Title />
+        <Form />
+        <TodoList />
+      </Container>
+    </div>
+  );
 }

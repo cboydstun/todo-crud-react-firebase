@@ -1,34 +1,47 @@
-import React, {useState} from 'react'
-import firebase from '../util/firebase'
+import React, { useState } from "react";
+import firebase from "../util/firebase";
 
-export default function Form() {
-    const [title, setTitle] = useState("");
+import {
+  Button,
+  Form,
+  FormControl,
+  Col,
+  Row,
+} from "react-bootstrap";
 
-    const createTodo = (event) => {
-        event.preventDefault();
-        const todoRef = firebase.database().ref("Todo");
-        const todo = {
-          title,
-          complete: false,
-        };
-        todoRef.push(todo);
-        setTitle("");
-      };
+export default function FormComponent() {
+  const [title, setTitle] = useState("");
 
-    const handleChange = (e) => {
-        setTitle(e.target.value)
-    }
+  const createTodo = (event) => {
+    event.preventDefault();
+    const todoRef = firebase.database().ref("Todo");
+    const todo = {
+      title,
+      complete: false,
+    };
+    todoRef.push(todo);
+    setTitle("");
+  };
 
-    return (
-        <form onSubmit={createTodo}>
-            <input
-                placeholder="What needs to be done?"
-                value={title}
-                type="text"
-                onChange={handleChange}
-                required
-            />
-            <button type="submit">Add Todo</button>
-        </form>
-    )
+  const handleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  return (
+    <Form onSubmit={createTodo} className="mb-3">
+      <Row>
+        <Col lg={8}>
+          <FormControl
+            type="text"
+            placeholder="What needs to be done?"
+            onChange={handleChange}
+            value={title}
+          />
+        </Col>
+        <Col lg={4}>
+          <Button type="submit" variant="danger">Create Todo</Button>
+        </Col>
+      </Row>
+    </Form>
+  );
 }

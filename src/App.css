@@ -1,0 +1,25 @@
+.App{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container{
+    background-color: rebeccapurple;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+h1{
+    color: white;
+    font-size: 3rem;
+}
+
+.crud-button{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
